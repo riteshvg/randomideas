@@ -82,6 +82,21 @@ npm run dev
 }
 ```
 
+## Configurations:
+
+1. Frontend runs on localhost:3000
+2. Backend runs on localhost:5001
+
+## Setup Steps
+
+1. Create a public and client folder
+2. Run npm i to install dependencies
+3. Copy webpack files from webpack-starter to client folder
+4. Open webpack.config.js and modify the directory path to public
+5. Install fontawesome
+6. Run npm run dev in the config directory in a separate terminal instance
+7. Browser opens the localhost:3000 location and displays the frontend - the port is defined in webpack.config.js
+
 ## Contributing
 
 1. Fork the repository
