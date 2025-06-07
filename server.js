@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 require('dotenv').config();
 const port = process.env.PORT || 5001;
@@ -8,6 +9,9 @@ connectDB()
   .catch((err) => console.error('MongDB conenction error', err));
 
 const app = express();
+
+//Static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Body parser middleware
 app.use(express.json());
