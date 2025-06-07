@@ -17,9 +17,10 @@ class IdeaForm {
     if (
       !this._form.elements.text.value ||
       !this._form.elements.tag.value ||
-      this._form.elements.username.value
+      !this._form.elements.username.value
     ) {
       alert('Please enter all fields');
+      return;
     }
 
     //Save user to localstorage
@@ -41,7 +42,7 @@ class IdeaForm {
     this._form.elements.text.value = '';
     this._form.elements.tag.value = '';
     this._form.elements.username.value = '';
-    this.render;
+    this.render();
 
     //Dispatch event to modal
     document.dispatchEvent(new Event('closemodal'));
@@ -52,7 +53,11 @@ class IdeaForm {
     <form id="idea-form">
           <div class="form-control">
             <label for="idea-text">Enter a Username</label>
-            <input type="text" name="username" id="username"/>
+            <input type="text" name="username" id="username" value = "${
+              localStorage.getItem('username')
+                ? localStorage.getItem('username')
+                : ''
+            }"/>
           </div>
           <div class="form-control">
             <label for="idea-text">What's Your Idea?</label>

@@ -86,7 +86,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Delete idea
+//delete the idea
 router.delete('/:id', async (req, res) => {
   try {
     await Idea.findByIdAndDelete(req.params.id);
