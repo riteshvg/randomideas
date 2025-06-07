@@ -84,7 +84,7 @@ npm run dev
 
 ## Configurations:
 
-1. Frontend runs on localhost:3000
+1. Frontend runs on localhost:3001
 2. Backend runs on localhost:5001
 
 ## Setup Steps
