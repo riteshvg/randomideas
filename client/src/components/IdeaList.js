@@ -64,6 +64,16 @@ class IdeaList {
   }
 
   render() {
+    if (this._ideas.length === 0) {
+      this._ideaListEl.innerHTML = `
+         <div class="card">
+          <h3>Waiting for ideas...</h3>
+          <p>No ideas yet! Click the + button to add one.</p>
+        </div>
+      `;
+      return;
+    }
+
     this._ideaListEl.innerHTML = this._ideas
       .map((idea) => {
         const tagClass = this.getTagClass(idea.tag);
