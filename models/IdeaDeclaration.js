@@ -5,10 +5,6 @@ const IdeaSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add some text!'],
   },
-  description: {
-    type: String,
-    required: [true, 'Please add a description!'],
-  },
   tag: {
     type: String,
   },

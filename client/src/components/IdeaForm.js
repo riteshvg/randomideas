@@ -17,8 +17,7 @@ class IdeaForm {
     if (
       !this._form.elements.text.value ||
       !this._form.elements.tag.value ||
-      !this._form.elements.username.value ||
-      !this._form.elements.description.value
+      !this._form.elements.username.value
     ) {
       alert('Please enter all fields');
       return;
@@ -30,8 +29,7 @@ class IdeaForm {
     const idea = {
       text: this._form.elements.text.value,
       tag: this._form.elements.tag.value,
-      username: this._form.elements.username.value,
-      description: this._form.elements.description.value,
+      username: this._form.elements.username.value
     };
 
     //Add idea to server
@@ -64,10 +62,6 @@ class IdeaForm {
           <div class="form-control">
             <label for="idea-text">What's Your Idea?</label>
             <input type="text" name="text" id="idea-text" />
-          </div>
-          <div class = "form-control">
-            <label for = "description">Description</label>
-            <textarea name = "description" id = "description" placeholder = "Enter a description"></textarea>
           </div>
           <div class="form-control">
             <label for="tag">Tag</label>
