@@ -52,6 +52,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const idea = new Idea({
     text: req.body.text,
+    description: req.body.description,
     tag: req.body.tag,
     username: req.body.username,
   });
@@ -73,6 +74,7 @@ router.put('/:id', async (req, res) => {
       {
         $set: {
           text: req.body.text,
+          description: req.body.description,
           tag: req.body.tag,
           username: req.body.username,
         },

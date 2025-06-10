@@ -16,11 +16,29 @@ class IdeaList {
 
   addEventListeners() {
     this._ideaListEl.addEventListener('click', (e) => {
+      
       if (e.target.classList.contains('fa-times')) {
         e.stopImmediatePropagation();
         const ideaId = e.target.parentElement.parentElement.dataset.id;
         console.log(ideaId);
         this.deleteIdea(ideaId);
+      }
+
+      if(e.target.classList.contains('view-more-btn')) {
+        const card = e.target.closest('.card')
+        const preview = card.querySelector('.preview')
+        const fullDescription = card.querySelector('.full-description')
+        const button = e.target
+  
+        if(fullDescription.style.display === 'none'){ 
+          preview.style.display = 'none'
+          fullDescription.style.display = 'block'
+          button.textContent = 'Show Less'
+        } else {
+          preview.style.display = 'block'
+          fullDescription.style.display = 'none'
+          button.textContent = 'View More'
+        }
       }
     });
   }
@@ -77,6 +95,7 @@ class IdeaList {
     this._ideaListEl.innerHTML = this._ideas
       .map((idea) => {
         const tagClass = this.getTagClass(idea.tag);
+        const previewDescription = idea.description ? idea.description.substring(0, 100) + '...' : '';
         return `
         <div class="card" data-id="${idea._id}">
           <button class="delete"><i class="fas fa-times"></i></button>
@@ -84,6 +103,11 @@ class IdeaList {
             ${idea.text}
           </h3>
           <p class="tag ${tagClass}">${idea.tag.toUpperCase()}</p>
+          <div class="description">
+            <p class ="preview>${previewDescription}</p>
+            <div class = "full-description" style="display: none;">${idea.description}</div>
+            ${idea.description ? `<button class="read-more">Read More</button>` : ''}
+          </div>
           <p>
             Posted on <span class="date">${idea.date}</span> by
             <span class="author">${idea.username}</span>
