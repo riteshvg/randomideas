@@ -103,11 +103,6 @@ class IdeaList {
             ${idea.text}
           </h3>
           <p class="tag ${tagClass}">${idea.tag.toUpperCase()}</p>
-          <div class="description">
-            <p class ="preview>${previewDescription}</p>
-            <div class = "full-description" style="display: none;">${idea.description}</div>
-            ${idea.description ? `<button class="read-more">Read More</button>` : ''}
-          </div>
           <p>
             Posted on <span class="date">${idea.date}</span> by
             <span class="author">${idea.username}</span>
